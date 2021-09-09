@@ -1,4 +1,4 @@
-const usuarioInput = prompt("ingrese dia de la semana").toLowerCase()
+const usuarioInput = prompt("ingrese dia de la semana").toLowerCase();
 
 if (usuarioInput === "lunes") {
     console.log("No soy muy fan de los Lunes")
