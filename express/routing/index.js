@@ -2,15 +2,19 @@ const express = require ('express');
 const app = express();
 
 // el metodo use se corre cada vez que hay un nuevo request
-app.use(()=>{
-    console.log('tenemos un nuevo request')
-})
+// app.use(()=>{
+//     console.log('tenemos un nuevo request')
+// })
+// no me corria por que la pagina estaba contestando con el metodo use y se detenia
 
 // el metodo get es como mandamos respuestas especificas dependiendo la direccion url
 app.get('/',(req,res)=>{
     res.send('Este es el Home Page')
 })
 
+app.post('/cat', (req,res)=>{
+    res.send('este es un mensaje del post')
+})
 
 app.get('/cat',(req,res)=>{
     res.send('MEOWWW')
