@@ -14,9 +14,22 @@ app.set('view engine', 'ejs');
 // aqui declaramos cual sera el view engine por defalt que sera ejs
 
 app.get('/', (req, res)=>{
-    res.render('home')
+    const name = 'alexMendoza'.toUpperCase();
+    const num = Math.floor(Math.random() * 10) +1;
+    res.render('home', {bubles:name, num})
     // ahora con el metodo render de express podemos renderizar plantillas ejs en lugar de responder con un estring con res.send
+    // con {bubles:name, num } le estamos pasando parametros para usarlos en nuestro template ejs (name es ahora bubles y num sigue igual)
     // res.send('Hola')
+})
+app.get('/r/:algoEstupido', (req, res)=>{
+    const {algoEstupido}= req.params;
+    res.render('subreddit', {calzoncito:algoEstupido})
+    
+})
+app.get('/random', (req, res)=>{
+    const num = Math.floor(Math.random()*10)+1;
+    res.render('random', {num})
+    
 })
 
 app.listen(3000, ()=>{
