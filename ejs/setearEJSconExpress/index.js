@@ -31,6 +31,11 @@ app.get('/random', (req, res)=>{
     res.render('random', {num})
     
 })
+app.get('/cats', (req, res)=>{
+    const cats = ['mony', 'george', 'kamy', 'olib', 'magenta']
+    res.render('cats', {cats})
+    
+})
 
 app.listen(3000, ()=>{
     console.log('Escuchando desde el puerto 3000')
