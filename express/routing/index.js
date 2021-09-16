@@ -11,10 +11,25 @@ const app = express();
 app.get('/',(req,res)=>{
     res.send('Este es el Home Page')
 })
-
-app.post('/cat', (req,res)=>{
-    res.send('este es un mensaje del post')
+// ---------------------------------------------
+// rutas genericas, para tener aceso a la ruta generica hay que atrapar la informacion de cada request, y eso esta en req.params
+app.get('/r/:subreddit', (req,res)=>{
+    const {subreddit}= req.params;
+    // esta es la destructuracion del objeto req.params y le asignamos la constante subreddit
+    console.log(req.params)
+    res.send(`Buscando la pagina de ${subreddit}`)
 })
+
+app.get('/r/:subreddit/:ID', (req,res)=>{
+    const {subreddit, ID}= req.params;
+    // esta es la destructuracion del objeto req.params y le asignamos la constante subreddit
+    console.log(req.params)
+    res.send(`Buscando la pagina de ${subreddit} con ID: ${ID}`)
+})
+
+// app.post('/cat', (req,res)=>{
+//     res.send('este es un mensaje del post')
+// })
 
 app.get('/cat',(req,res)=>{
     res.send('MEOWWW')
@@ -28,6 +43,6 @@ app.get('*',(req,res)=>{
 
 // ahora iniciamos el servidor con: node index.js cada vez que cambiemos algo (para salir de node es (ctrl + c dos veces)
 
-app.listen((8080), ()=>{
-    console.log('escuchando desde el puerto 8080')
+app.listen((3000), ()=>{
+    console.log('escuchando desde el puerto 3000')
 })
