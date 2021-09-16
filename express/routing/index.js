@@ -20,6 +20,7 @@ app.get('/r/:subreddit', (req,res)=>{
     res.send(`Buscando la pagina de ${subreddit}`)
 })
 
+// esta es un generador de rutas genericas que definen un patron especifico, /r/algo/otroalgo 
 app.get('/r/:subreddit/:ID', (req,res)=>{
     const {subreddit, ID}= req.params;
     // esta es la destructuracion del objeto req.params y le asignamos la constante subreddit
