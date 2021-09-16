@@ -38,6 +38,18 @@ app.get('/cat',(req,res)=>{
 app.get('/dog',(req,res)=>{
     res.send('WOOFF')
 })
+// -------------------------------------------
+// es hora de trabajar con query strings
+app.get('/search',(req,res)=>{
+    // req.query es un objeto que da express donde guarda los querys de cada request
+const {q}= req.query;
+if(!q){
+    res.send('nada que mostrar si no se busca nada')
+}
+res.send(`Buscando resultados de ${q}`)
+})
+// la ruta que se debe escribir en brouser es: /search?q=catOalgo
+
 app.get('*',(req,res)=>{
     res.send('Lo siento no se encontro la pagina')
 })
