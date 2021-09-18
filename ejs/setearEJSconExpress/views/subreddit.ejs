@@ -7,6 +7,23 @@
     <title><%= calzoncito %></title>
   </head>
   <body>
-    <h1>Bienvenidos a la pagina de <%= calzoncito %></h1>
+    <h1>Bienvenidos a la pagina de <%= name %></h1>
+    <h2><%= description %></h2>
+    <p><%= subscribers %> Subscribers</p>
+    <hr />
+    <% for (let post of posts){ %>
+    <article>
+      <p><%= post.title %> - <b><%= post.author %></b></p>
+      <% if (post.img) { %>
+      <img src="<%= post.img %> " alt="" max-width="600px" />
+      <% } %>
+    </article>
+    <% } %>
   </body>
 </html>
+<!-- name 
+subscribers
+description
+posts.title
+post.author
+post.img -->

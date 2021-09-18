@@ -6,6 +6,9 @@
 const express = require('express');
 const app = express();
 
+const redditData = require('./data.json')
+// console.log(redditData)
+
 const path = require ('path');
 app.set('views', path.join(__dirname, '/views'))
 // path es para mejores practicas y sirve para ejecutar nuestro programa desde una ruta absoluta, fuera de nuestra carpeta
@@ -23,8 +26,18 @@ app.get('/', (req, res)=>{
 })
 app.get('/r/:algoEstupido', (req, res)=>{
     const {algoEstupido}= req.params;
-    res.render('subreddit', {calzoncito:algoEstupido})
-    
+    // -----------------------------------------
+    const data = redditData[algoEstupido];
+    // console.log(data)
+    // con esto estamos consiguiendo el objeto especifico de nuestra data
+    // --------------------------------------------
+    if(data){
+     res.render('subreddit', {calzoncito:algoEstupido, ...data})
+    }
+    // de esta forma copiamos el objeto de data y lo pasamos al template de subreddit para usar sus valores como yo quiera
+    else{
+        res.render('notFound',{algoEstupido})
+    }
 })
 app.get('/random', (req, res)=>{
     const num = Math.floor(Math.random()*10)+1;
