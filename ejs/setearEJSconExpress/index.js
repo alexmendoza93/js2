@@ -6,11 +6,14 @@
 const express = require('express');
 const app = express();
 
-const redditData = require('./data.json')
+const redditData = require('./data.json');
 // console.log(redditData)
 
+
 const path = require ('path');
-app.set('views', path.join(__dirname, '/views'))
+app.use(express.static(path.join(__dirname, 'public')));
+// con este seteo estamos habilitando que los estilos agregados en public se ejecoten con cada request y desde una ruta absoluta(de cualquier lugar)
+app.set('views', path.join(__dirname, '/views'));
 // path es para mejores practicas y sirve para ejecutar nuestro programa desde una ruta absoluta, fuera de nuestra carpeta
 
 app.set('view engine', 'ejs');
