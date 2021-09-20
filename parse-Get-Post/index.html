@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GET y POST</title>
+  </head>
+  <body>
+    <h1>GET and POST response</h1>
+    <h2>GET respose</h2>
+    <form action="http://localhost:3000/tacos" method="get">
+      <label for="carneGET">Carne</label>
+      <input
+        type="text"
+        name="carneg"
+        placeholder="Tipo de carne"
+        id="carneGET"
+      />
+      <label for="cuantosGET">Cantidad</label>
+      <input type="text" name="qtyg" placeholder="Cantidad" id="cuantosGET" />
+      <button>Enviar</button>
+    </form>
+    <h2>POST respose</h2>
+    <form action="http://localhost:3000/tacos" method="post">
+      <label for="carnePOST">Carne</label>
+      <input
+        type="text"
+        name="carne"
+        placeholder="Tipo de carne"
+        id="carnePOST"
+      />
+      <label for="cuantosPOST">Cantidad</label>
+      <input type="text" name="qty" placeholder="Cantidad" id="cuantosPOST" />
+      <button>Enviar</button>
+    </form>
+  </body>
+</html>

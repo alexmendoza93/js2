@@ -1,0 +1,15 @@
+{
+  "name": "parse-get-post",
+  "version": "1.0.0",
+  "description": "vamos a saber como recabar unformacion de un formulario y usarlo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "alexMendoza",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
