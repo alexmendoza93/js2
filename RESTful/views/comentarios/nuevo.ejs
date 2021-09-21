@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Haz un nuevo comentario</h1>
+    <form action="/comments" method="POST">
+      <label for="username">ingrese usuario</label>
+      <input type="text" name="username" placeholder="usuario" id="username" />
+      <br />
+      <label for="comentario">Su comentario</label>
+      <br />
+      <textarea name="comentario" id="comentario" cols="30" rows="5"></textarea>
+      <br />
+      <button>Enviar</button>
+    </form>
+    <a href="/comments">Ir a comentarios</a>
+  </body>
+</html>

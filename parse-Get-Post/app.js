@@ -34,10 +34,14 @@ const comments = [
 
 ]
 // esta primera direccion es la direccion del brouser
-app.get('/comments', (req,res) =>{
+app.get('/comments', (req, res) => {
     res.render('comments/lista', {comments})
     // esta segunda direccion es el documento que se va renderizar, y el segundo valor se habilita los valores de un objeto
-})
+});
+
+
+
+
 
 app.get('/tacos', (req,res) =>{
     console.log(req.body);
