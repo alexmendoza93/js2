@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const { constants } = require('perf_hooks');
 
 app.use(express.urlencoded({ extended:true}));
 // esto analiza el request body y asi podemos obtener los datos enviados desde nuestro formulario con metodo post
@@ -64,10 +65,19 @@ app.post('/comments', (req, res) =>{
 app.get('/comments/:id', (req, res) =>{
     const {id} = req.params;
     console.log(req.params);
-    const comentario =comentarios.find(c => c.id === parseInt(id));
+    constants comentario =comentarios.find(c => c.id === parseInt(id));
     // ponemos parse int por que lo que da req.params es un string
     // y esto se supone que deberia regresar un comentario
     res.render('comentarios/show', {comentario});
+})
+
+// vamos a hacer un formulario para editar los comentarios actuales
+app.get('/comments/:id/edit', (req, res) =>{
+    const {id} = req.params;
+    const comentario = comentarios.find(c => c.id === id);
+
+    res.render('comentarios/edicion', {comentario})
+    console.log(comentario)
 })
 
 // con patch podemos actualizar informacion
